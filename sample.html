@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    nav {
+      text-align: center;
+      padding: 1em;
+      background-color: #eee;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Single Page App</h1>
+  </header>
+
+  <nav>
+    <button onclick="showPage('login')">Login</button>
+    <button onclick="showPage('signup')">contact</button>
+    <button onclick="showPage('about')">About Us</button>
+  </nav>
+
+  <section id="login" class="hidden">
+    <h2>Login Page</h2>
+    <!-- Add your login form here -->
+  </section>
+
+  <section id="signup" class="hidden">
+    <h1>Contact Us</h1>
+    <form action="submit_form.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br/>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br/>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br/>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>Email: suneel@example.com</p>
+        <p>Phone: 9987462554</p>
+        <p>Address: 13-235, Chittoor, Chennai</p>
+    </div>
+    <img src="https://th.bing.com/th/id/OIP.GJXl57ra5-wVdq9MwIUTBAHaHY?rs=1&pid=ImgDetMain" alt="Contact Image">
+    <!-- Add your signup form here -->
+  </section>
+
+  <section id="about" class="hidden">
+    <h2>About Us</h2>
+    <p>This is the about us page. Welcome!</p>
+    <img src="https://t4.ftcdn.net/jpg/01/08/34/53/360_F_108345358_mREIebrNXJM0iuAlxvEshj1j2QrhhzpK.jpg" alt="About Image">
+  </section>
+
+  <script>
+    function showPage(pageId) {
+      // Hide all sections
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      // Show the selected section
+      document.getElementById(pageId).classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
